@@ -896,9 +896,9 @@
 						var dX = horizontalDragPosition, dY = verticalDragPosition, factor = event.deltaFactor || settings.mouseWheelSpeed;
 						
 						if(!settings.switchMouseWheel){
-						jsp.scrollBy(deltaX * factor, -deltaY * factor, false);
+						jsp.scrollBy(deltaX * factor, -deltaY * factor, true);
 						} else {
-						jsp.scrollBy(-deltaY * factor, deltaX * factor, false);	
+						jsp.scrollBy(-deltaY * factor, deltaX * factor, true);	
 						}
 						// return true if there was no movement so rest of screen can scroll
 						return dX == horizontalDragPosition && dY == verticalDragPosition;
