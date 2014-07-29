@@ -894,7 +894,12 @@
 					mwEvent,
 					function (event, delta, deltaX, deltaY) {
 						var dX = horizontalDragPosition, dY = verticalDragPosition, factor = event.deltaFactor || settings.mouseWheelSpeed;
+						
+						if(!settings.switchMouseWheel){
 						jsp.scrollBy(deltaX * factor, -deltaY * factor, false);
+						} else {
+						jsp.scrollBy(deltaY * factor, -deltaX * factor, false);	
+						}
 						// return true if there was no movement so rest of screen can scroll
 						return dX == horizontalDragPosition && dY == verticalDragPosition;
 					}
@@ -1444,6 +1449,7 @@
 		verticalGutter				: 4,
 		horizontalGutter			: 4,
 		mouseWheelSpeed				: 3,
+		switchMouseWheel			: false,
 		arrowButtonSpeed			: 0,
 		arrowRepeatFreq				: 50,
 		arrowScrollOnHover			: false,
